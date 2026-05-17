@@ -1,0 +1,11 @@
+# GitHub Pages settings
+# カスタムドメイン（CNAME: reports.motowo.jp）で公開しているため、サイトのルートは
+# https://reports.motowo.jp/。baseurl は空にする（/reports を前置しない）。
+# relative_url フィルタは baseurl 空のとき先頭スラッシュ付きパスをそのまま返すため、
+# 共有アセットは https://reports.motowo.jp/assets/... で解決される。
+baseurl: ""
+
+# _includes / assets は Jekyll が処理。元原稿の Markdown はビルド対象から除外。
+exclude:
+  - "**/report.md"
+  - README.md
