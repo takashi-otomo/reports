@@ -1,0 +1,99 @@
+---
+# 空の front matter。これがあると Jekyll が Liquid（include 等）を処理する。
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google Tag Manager -->
+<script src="{{ '/assets/gtm.js' | relative_url }}"></script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script src="{{ '/assets/ga.js' | relative_url }}"></script>
+<!-- End Google tag (gtag.js) -->
+<title>reports — 編集会議レポート一覧</title>
+<meta name="description" content="編集会議レポートのインデックス。各レポートへのリンク一覧。" />
+<style>
+  :root {
+    --bg: #f7f5f1;
+    --bg-card: #ffffff;
+    --bg-soft: #efece5;
+    --ink: #1a1815;
+    --ink-3: #4a463f;
+    --ink-4: #837c70;
+    --line: #e3dfd5;
+    --accent: #2f7a4f;
+    --ff-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    --ff-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--ff-sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 36px; }
+  h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: .01em; }
+  .lead { color: var(--ink-3); margin: 0; font-size: 15px; }
+  .count { font-family: var(--ff-mono); color: var(--ink-4); font-size: 13px; margin-top: 14px; }
+  ul.reports { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .card-title { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
+  .card-title .emoji { margin-right: 8px; }
+  .card-meta { font-family: var(--ff-mono); font-size: 12px; color: var(--ink-4); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .card-meta .tag::before { content: "#"; opacity: .55; }
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink-4); font-size: 13px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+{% include gtm-noscript.html %}
+
+<div class="wrap">
+  <header>
+    <h1>編集会議レポート</h1>
+    <p class="lead">各レポートへのリンク一覧です。タイトルを選ぶと本文を表示します。</p>
+    <p class="count">reports.motowo.jp</p>
+  </header>
+
+  <!-- レポートを追加する場合は、この <ul> 内に <li>…</li> を 1 件追記してください。
+       href は editorial-reports/<slug>/ の末尾スラッシュ付き相対パスにします。 -->
+  <ul class="reports">
+    <li>
+      <a class="card" href="editorial-reports/anthropic-multi-agent-coordination-patterns-guide/">
+        <p class="card-title"><span class="emoji">🧭</span>Anthropic の 5 パターンで Claude Code エージェント設計を分類する</p>
+        <p class="card-meta">
+          <span>tech</span>
+          <span class="tag">claudecode</span>
+          <span class="tag">ai</span>
+          <span class="tag">multiagent</span>
+          <span class="tag">anthropic</span>
+          <span class="tag">automation</span>
+          <span>2026-05-01</span>
+        </p>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    編集会議レポート（<code>/editorial</code> 生成物）のアーカイブ。
+  </footer>
+</div>
+
+</body>
+</html>

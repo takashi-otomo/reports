@@ -15,6 +15,7 @@
 ## 🗂 ディレクトリ構成
 
 ```
+index.html            # サイトのトップ（レポート一覧。https://reports.motowo.jp/）
 editorial-reports/
 └── <slug>/
     ├── index.html   # 公開ページ（GitHub Pages で表示される）
@@ -23,15 +24,16 @@ editorial-reports/
     └── report.md    # 元原稿（Markdown）
 ```
 
-各レポートは `editorial-reports/<slug>/` 配下に格納し、上記の一覧テーブルに 1 行追記してください。リンクは末尾スラッシュ付きの相対パスにすると、GitHub Pages 上で `index.html` が自動的に表示されます。
+各レポートは `editorial-reports/<slug>/` 配下に格納します。レポートを追加したら **(1) 上記の一覧テーブル** と **(2) ルート `index.html` の `<ul class="reports">` 内のカード** の 2 箇所に追記してください。リンクは末尾スラッシュ付きの相対パスにすると、GitHub Pages 上で `index.html` が自動的に表示されます。
 
-## 📊 Google Tag Manager（全ページ共通）
+## 📊 アクセス解析タグ（全ページ共通）
 
-コンテナ ID `GTM-MPX9LPX8` を共通コンポーネント化しています。
+Google Tag Manager（`GTM-MPX9LPX8`）と GA4 gtag.js（`G-8SS2P3RE61`）を共通コンポーネント化しています。測定 ID は各共有 JS の 1 箇所のみで管理します。
 
-- `assets/gtm.js` … `<head>` 用タグ（共有 JS）。ID 変更時はこのファイルの 1 箇所のみ修正。
-- `_includes/gtm-noscript.html` … `<body>` 用 `<noscript>`（Jekyll include）。
-- `_config.yml` … `baseurl: /reports` を設定（`relative_url` のパス解決に使用）。
+- `assets/gtm.js` … GTM の `<head>` 用タグ（共有 JS）。
+- `assets/ga.js` … GA4 gtag.js（共有 JS）。本体を非同期ロード＋初期化。`dataLayer` は GTM と共有。
+- `_includes/gtm-noscript.html` … GTM の `<body>` 用 `<noscript>`（Jekyll include）。
+- `_config.yml` … カスタムドメインのため `baseurl` は空（`relative_url` のパス解決に使用）。
 
 ### 新規ページに組み込む手順
 
@@ -47,6 +49,9 @@ editorial-reports/
    <!-- Google Tag Manager -->
    <script src="{{ '/assets/gtm.js' | relative_url }}"></script>
    <!-- End Google Tag Manager -->
+   <!-- Google tag (gtag.js) -->
+   <script src="{{ '/assets/ga.js' | relative_url }}"></script>
+   <!-- End Google tag (gtag.js) -->
    ```
 3. `<body>` 開始直後に noscript include:
    ```liquid
