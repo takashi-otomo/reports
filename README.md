@@ -10,6 +10,7 @@
 
 | レポート | 種別 | トピック | 取得日 |
 |---|---|---|---|
+| 🎨 [Claude Code で HTML レポートワークフローを構築する](editorial-reports/claude-code-html-report-workflow/) | tech | claudecode, html, ai, llm | 2026-05-18 |
 | 🧭 [Anthropic の 5 パターンで Claude Code エージェント設計を分類する](editorial-reports/anthropic-multi-agent-coordination-patterns-guide/) | tech | claudecode, ai, multiagent, anthropic, automation | 2026-05-01 |
 
 ## 🗂 ディレクトリ構成
